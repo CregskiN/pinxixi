@@ -1,0 +1,15 @@
+ul {
+    display: inline-block;
+    margin: 0 5px;
+    display: flex;
+}
+ul li {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none;
+}
