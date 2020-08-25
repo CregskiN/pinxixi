@@ -1,5 +1,5 @@
-<ul>
-  <li>
-    <a *ngFor="let item of menus;" href="{{item.link}}">{{item.title}}</a>
-  </li>
-</ul>
+<app-scrollable-tab
+ [menus]="topMenus"
+  [backgroundColor]="'red'" 
+  (tabSelected)="handleTabSelected($event)"
+></app-scrollable-tab>
