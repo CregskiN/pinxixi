@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 
-import { TopMenu } from './components';
-import { topMenus } from './data';
+import { TopMenu, ImageSlider } from './components';
+import { topMenus, imageSliders } from './data';
 
 
 @Component({
@@ -11,11 +11,11 @@ import { topMenus } from './data';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pinduoduo';
   topMenus: TopMenu[] = topMenus;
+  imageSliders: ImageSlider[] = imageSliders;
 
   handleTabSelected(menu: TopMenu): void {
     console.log(menu);
-    
+
   }
 }

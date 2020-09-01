@@ -1,1 +1,73 @@
-export const topMenus = [{ title: '热门', link: '#' }, { title: '男装', link: '#' }, { title: '手机', link: '#' }, { title: '热门', link: '#' }, { title: '男装', link: '#' }, { title: '手机', link: '#' }, { title: '热门', link: '#' }, { title: '男装', link: '#' }, { title: '手机', link: '#' }, { title: '热门', link: '#' }, { title: '男装', link: '#' }, { title: '手机', link: '#' }, { title: '热门', link: '#' }, { title: '男装', link: '#' }, { title: '手机', link: '#' }];
+export const topMenus = [{
+    title: '热门',
+    link: '#'
+}, {
+    title: '男装',
+    link: '#'
+}, {
+    title: '手机',
+    link: '#'
+}, {
+    title: '热门',
+    link: '#'
+}, {
+    title: '男装',
+    link: '#'
+}, {
+    title: '手机',
+    link: '#'
+}, {
+    title: '热门',
+    link: '#'
+}, {
+    title: '男装',
+    link: '#'
+}, {
+    title: '手机',
+    link: '#'
+}, {
+    title: '热门',
+    link: '#'
+}, {
+    title: '男装',
+    link: '#'
+}, {
+    title: '手机',
+    link: '#'
+}, {
+    title: '热门',
+
+    link: '#'
+}, {
+    title: '男装',
+    link: '#'
+}, {
+    title: '手机',
+    link: '#'
+}];
+
+export const imageSliders = [{
+    imgURL: 'https://ftp.bmp.ovh/imgs/2020/08/5da1c7c7e46f2b8f.jpg',
+    link: '',
+    caption: ''
+}, {
+    imgURL: 'https://tse3-mm.cn.bing.net/th/id/OIP.L44TXX1NP5_tVYP-8Id2ZgHaDA?pid=Api&rs=1',
+    link: '',
+    caption: ''
+}, {
+    imgURL: 'https://tse1-mm.cn.bing.net/th/id/OIP.Jx10Vh5qBlOQ9KEaJgTSngHaD6?pid=Api&rs=1',
+    link: '',
+    caption: ''
+}, {
+    imgURL: 'https://ftp.bmp.ovh/imgs/2020/08/5da1c7c7e46f2b8f.jpg',
+    link: '',
+    caption: ''
+}, {
+    imgURL: 'https://tse3-mm.cn.bing.net/th/id/OIP.L44TXX1NP5_tVYP-8Id2ZgHaDA?pid=Api&rs=1',
+    link: '',
+    caption: ''
+}, {
+    imgURL: 'https://tse1-mm.cn.bing.net/th/id/OIP.Jx10Vh5qBlOQ9KEaJgTSngHaD6?pid=Api&rs=1',
+    link: '',
+    caption: ''
+},]

@@ -10,7 +10,7 @@ export interface TopMenu {
   templateUrl: './scrollable-tab.component.html',
   styleUrls: ['./scrollable-tab.component.css']
 })
-export class ScrollableTabComponent implements OnInit, DoCheck {
+export class ScrollableTabComponent implements OnInit {
   @Input() menus: TopMenu[] = [];
   @Input() backgroundColor: string = '#fff';
   @Input() titleActiveColor: string = 'yellow';
