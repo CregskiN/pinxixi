@@ -55,8 +55,8 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   handleScroll(ev) {
-    const radio = ev.target.scrollLeft / (ev.target.scrollWidth / this.sliders.length);
-    this.selectedIndex = Math.round(radio);
+    const ratio = ev.target.scrollLeft / (ev.target.scrollWidth / this.sliders.length);
+    this.selectedIndex = Math.round(ratio);
   }
 
   ngOnDestroy(): void {

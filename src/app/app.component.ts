@@ -13,7 +13,8 @@ import { topMenus, imageSliders } from './data';
 export class AppComponent {
   topMenus: TopMenu[] = topMenus;
   imageSliders: ImageSlider[] = imageSliders;
-
+  username = '';
+  
   handleTabSelected(menu: TopMenu): void {
     console.log(menu);
 

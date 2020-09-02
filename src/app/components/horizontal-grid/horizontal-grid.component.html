@@ -1,10 +1,9 @@
 <!-- 双向绑定写法 -->
-<!-- <input type="text" [value]="username" (input)="username = $event.target.value"> -->
+<input type="text" [value]="username" (input)="username = $event.target.value">
 
 <!-- ngModel 语法糖，底层一个属性绑定，一个事件绑定 -->
 <!-- <input type="text" [(ngModel)]="username"> -->
-<input type="text" [ngModel]="username" (ngModelChange)="username=$event">
-
+<!-- <input type="text" [ngModel]="username" (ngModelChange)="username=$event"> -->
 
 <span>
     hello, {{username}}

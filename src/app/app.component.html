@@ -1,10 +1,6 @@
-<app-scrollable-tab 
-[menus]="topMenus" 
-[backgroundColor]="'red'" 
-(tabSelected)="handleTabSelected($event)"
-></app-scrollable-tab>
+<app-scrollable-tab [menus]="topMenus" [backgroundColor]="'red'" (tabSelected)="handleTabSelected($event)">
+</app-scrollable-tab>
 
-<app-image-slider 
-[sliders]="imageSliders"
-></app-image-slider>
-<app-horizontal-grid></app-horizontal-grid>
+<app-image-slider [sliders]="imageSliders"></app-image-slider>
+<!-- <app-horizontal-grid [username]="username" (usernameChange)="username = $event"></app-horizontal-grid> -->
+<app-horizontal-grid [(username)]="username"></app-horizontal-grid>
