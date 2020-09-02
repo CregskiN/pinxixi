@@ -3,20 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ScrollableTabComponent } from './components';
-import { ImageSliderComponent } from './components';
-import { HorizontalGridComponent } from './components';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [ // root module
     AppComponent,
-    ScrollableTabComponent,
-    ImageSliderComponent,
-    HorizontalGridComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

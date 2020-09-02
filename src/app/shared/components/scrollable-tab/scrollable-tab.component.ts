@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export interface TopMenu {
   title: string;
@@ -19,6 +19,7 @@ export class ScrollableTabComponent implements OnInit {
   @Output() tabSelected = new EventEmitter();
 
   selectedIndex: number = 0;
+  
   constructor() { }
 
   ngOnInit(): void {

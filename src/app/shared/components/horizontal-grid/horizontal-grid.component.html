@@ -1,10 +1,16 @@
 <!-- 双向绑定写法 -->
-<input type="text" [value]="username" (input)="username = $event.target.value">
+<!-- <input type="text" [value]="username" (input)="username = $event.target.value"> -->
 
 <!-- ngModel 语法糖，底层一个属性绑定，一个事件绑定 -->
 <!-- <input type="text" [(ngModel)]="username"> -->
 <!-- <input type="text" [ngModel]="username" (ngModelChange)="username=$event"> -->
 
-<span>
+<!-- <span>
     hello, {{username}}
-</span>
+</span> -->
+
+<!-- 指令 appGridItem 所在元素叫宿主 -->
+<div appGridItem>
+    <img src="" alt="" appGridItemImage>
+    <span appGridItemTitle></span>
+</div>
