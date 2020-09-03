@@ -10,7 +10,11 @@
 </span> -->
 
 <!-- 指令 appGridItem 所在元素叫宿主 -->
-<div appGridItem *ngFor="let item of channels">
-    <img [src]="item.icon" alt="" appGridItemImage>
-    <span appGridItemTitle>{{item.title}}</span>
-</div>
+<!-- <div appGridItem *ngFor="let item of channels">
+    <img [src]="item.icon" alt="" appGridItemImage="2rem">
+    <span appGridItemTitle="0.5rem">{{item.title}}</span>
+</div> -->
+
+<ng-content>
+    
+</ng-content>

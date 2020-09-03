@@ -2,4 +2,9 @@
 
 <app-image-slider [sliders]="imageSliders"></app-image-slider>
 <!-- <app-horizontal-grid [username]="username" (usernameChange)="username = $event"></app-horizontal-grid> -->
-<app-horizontal-grid></app-horizontal-grid>
+<app-horizontal-grid>
+  <div appGridItem *ngFor="let item of channels">
+    <img [src]="item.icon" alt="" appGridItemImage="2rem">
+    <span appGridItemTitle="0.5rem">{{item.title}}</span>
+  </div>
+</app-horizontal-grid>
