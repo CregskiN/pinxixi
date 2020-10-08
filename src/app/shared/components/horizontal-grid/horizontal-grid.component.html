@@ -15,6 +15,15 @@
     <span appGridItemTitle="0.5rem">{{item.title}}</span>
 </div> -->
 
-<ng-content>
-    
-</ng-content>
+<!-- 选择 span标签 显示 -->
+<!-- <ng-content select="span"></ng-content> -->
+<!-- 选择 class="special" 的标签 显示 -->
+<!-- <ng-content select=".special"></ng-content> -->
+<!-- 选择 appGridItem 指令修饰的宿主 显示 -->
+<!-- <ng-content select="[appGridItem]"></ng-content> -->
+
+<div 
+    class="container" 
+    [ngStyle]="{'grid-template-rows': templateRows, 'grid-template-columns': templateColumns}">
+    <ng-content select="[appGridItem]"></ng-content>
+</div>

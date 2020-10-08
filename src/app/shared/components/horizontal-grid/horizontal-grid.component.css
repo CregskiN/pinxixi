@@ -1,5 +1,21 @@
-input {
-    margin: 20px 20px;
+:host {
+    display: flex;
+    overflow-x: auto;
+}
 
-    border: 1px solid;
+.container {
+    background-color: #fff;
+    padding: 5px 0;
+    /* 横向滚动，纵向隐藏 */
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* 滚动效果 */
+    scroll-behavior: smooth; /* container 容器内滚动，不会触发视窗的滚动 */ /* 另一种实现是通过 hash 触发视窗的滚动条，实现锚点定位 */
+    -webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 该属性仅在 safari mobile 使用*/
+    /* -webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */
+    display: grid;
+    place-content: stretch;
+    place-items: center;
+    grid-gap: 0.4rem; /* 区块的间距 */
+    grid-auto-flow: row; /* 冒出来，按行方式增长（折行） */
 }
