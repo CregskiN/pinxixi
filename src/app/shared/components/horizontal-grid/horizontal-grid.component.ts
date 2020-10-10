@@ -43,8 +43,12 @@ export class HorizontalGridComponent implements OnInit {
   /**
    * 返回可视化列数
    */
-  public get templateColmns(): string {
+  public get templateColumns(): string {
     return `repeat(${this.cols}, calc((100vw - ${this.displayCols * 0.4}rem) / ${this.displayCols}))`;
+  }
+
+  public handleScroll(ev){
+    this.sliderMargin = `0 ${100 * ev.target.scrollLeft / ev.target.scrollWidth}%`;
   }
 
 
