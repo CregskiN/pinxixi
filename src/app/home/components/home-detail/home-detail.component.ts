@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { imageSliders, channels } from '../../../data';
 import { ImageSlider } from '../../../shared';
+import { HomeService } from '../../services';
 
 export interface Channel {
   id: number;
@@ -17,13 +17,19 @@ export interface Channel {
   styleUrls: ['./home-detail.component.css']
 })
 export class HomeDetailComponent implements OnInit {
-  imageSliders: ImageSlider[] = imageSliders;
-  channels: Channel[] = channels;
+  imageSliders: ImageSlider[] = [];
+  channels: Channel[] = [];
   selectedTabLink: string; // 当前路由的路由参数
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: HomeService
+  ) { }
 
   ngOnInit(): void {
+    this.imageSliders = this.service.getBanners();
+    this.channels = this.service.getChannels()
+
     this.route.paramMap.subscribe(params => { // rxjs 订阅
       console.log("切换子路由 路径参数 pathParams", params);
       this.selectedTabLink = params.get('tabLink');

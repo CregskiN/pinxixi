@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 
 import { TopMenu } from '../../../shared';
 import { topMenus } from '../../../data';
-
-
-
+import { HomeService } from '../../services';
 
 @Component({
   selector: 'app-home-container',
@@ -13,14 +11,16 @@ import { topMenus } from '../../../data';
   styleUrls: ['./home-container.component.css']
 })
 export class HomeContainerComponent implements OnInit {
-
   topMenus: TopMenu[] = topMenus;
   username = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private service: HomeService
+  ) { }
 
   ngOnInit() {
-
+    this.topMenus = this.service.getTabs()
   }
 
   /**
