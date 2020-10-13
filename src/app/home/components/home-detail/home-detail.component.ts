@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ImageSlider } from '../../../shared';
@@ -14,7 +14,8 @@ export interface Channel {
 @Component({
   selector: 'app-home-detail',
   templateUrl: './home-detail.component.html',
-  styleUrls: ['./home-detail.component.css']
+  styleUrls: ['./home-detail.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeDetailComponent implements OnInit {
   imageSliders: ImageSlider[] = [];
@@ -23,7 +24,8 @@ export class HomeDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: HomeService
+    private service: HomeService,
+    private cd: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class HomeDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => { // rxjs 订阅
       console.log("切换子路由 路径参数 pathParams", params);
       this.selectedTabLink = params.get('tabLink');
+      this.cd.markForCheck();
     });
     this.route.queryParamMap.subscribe(params => {
       console.log("切换子路由 查询参数 queryParams", params);

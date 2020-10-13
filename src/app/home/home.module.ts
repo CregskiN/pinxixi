@@ -7,10 +7,11 @@ import {
   HomeContainerComponent,
   HomeDetailComponent,
   HomeGrandComponent,
-  HomeAuxComponent
+  HomeAuxComponent,
+  ChildComponent,
+  ParentComponent
 } from './components';
-import { HomeService } from './services';
-
+import { token } from './services';
 
 @NgModule({
   // component  // ng generate component [path/component] 自动导入
@@ -18,7 +19,9 @@ import { HomeService } from './services';
     HomeContainerComponent,
     HomeDetailComponent,
     HomeGrandComponent,
-    HomeAuxComponent
+    HomeAuxComponent,
+    ChildComponent,
+    ParentComponent,
   ],
   // Model
   imports: [
@@ -27,7 +30,11 @@ import { HomeService } from './services';
   ],
   // service 提供者 DI
   providers: [
-    HomeService,
+    // HomeService, // HomeService 使用 porvideIn: "root" 无需在此导入
+    {
+      provide: token,
+      useValue: 'http://localdev'
+    }
   ]
 })
 export class HomeModule { }

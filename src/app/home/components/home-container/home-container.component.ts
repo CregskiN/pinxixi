@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TopMenu } from '../../../shared';
 import { topMenus } from '../../../data';
-import { HomeService } from '../../services';
+import { HomeService, token } from '../../services';
 
 @Component({
   selector: 'app-home-container',
@@ -13,14 +13,16 @@ import { HomeService } from '../../services';
 export class HomeContainerComponent implements OnInit {
   topMenus: TopMenu[] = topMenus;
   username = '';
-
+  @Inject(token) private baseURL: string;
   constructor(
     private router: Router,
     private service: HomeService
   ) { }
 
   ngOnInit() {
-    this.topMenus = this.service.getTabs()
+    this.topMenus = this.service.getTabs();
+    console.log(this.baseURL); // 
+    
   }
 
   /**
