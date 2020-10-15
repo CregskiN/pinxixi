@@ -4,10 +4,11 @@ import {
   TopMenu
 } from 'src/app/shared';
 import {
-  Channel,
+  Channel
 } from '../components';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ParamInterceptor } from '../index';
 
 @Injectable({
   providedIn: 'root' // 自动导入到根模块
