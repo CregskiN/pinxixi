@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import localZh from '@angular/common/locales/zh-Hans';
+import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home';
-
-import localZh from '@angular/common/locales/zh-Hans';
-import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [ // root module
@@ -19,7 +19,8 @@ import { registerLocaleData } from '@angular/common';
     FormsModule,
     SharedModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule, // 在根模块导入，子模块都可以导入
   ],
   providers: [{
     provide: LOCALE_ID,

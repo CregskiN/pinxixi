@@ -29,8 +29,14 @@ export class HomeDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.imageSliders = this.service.getBanners();
-    this.channels = this.service.getChannels()
+    this.service.getBanners().subscribe(banners => {
+      this.imageSliders = banners;
+      this.cd.markForCheck();
+    });
+    this.service.getChannels().subscribe(channels => {
+      this.channels = channels;
+      this.cd.markForCheck();
+    });
 
     this.route.paramMap.subscribe(params => { // rxjs 订阅
       console.log("切换子路由 路径参数 pathParams", params);

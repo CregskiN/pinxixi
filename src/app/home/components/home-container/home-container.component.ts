@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TopMenu } from '../../../shared';
-import { topMenus } from '../../../data';
 import { HomeService, token } from '../../services';
 
 @Component({
@@ -11,7 +10,7 @@ import { HomeService, token } from '../../services';
   styleUrls: ['./home-container.component.css']
 })
 export class HomeContainerComponent implements OnInit {
-  topMenus: TopMenu[] = topMenus;
+  topMenus: TopMenu[] = [];
   username = '';
   @Inject(token) private baseURL: string;
   constructor(
@@ -20,9 +19,9 @@ export class HomeContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.topMenus = this.service.getTabs();
-    console.log(this.baseURL); // 
-    
+    this.service.getTabs().subscribe(tabs => {
+      this.topMenus = tabs;
+    })
   }
 
   /**

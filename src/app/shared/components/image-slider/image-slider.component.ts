@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 export interface ImageSlider {
+  id: number;
   imgURL: string;
   link: string;
   caption: string; // 周年庆xxx 文字
