@@ -8,7 +8,6 @@ import {
   HomeDetailComponent,
   HomeGrandComponent,
   HomeAuxComponent,
-  ChildComponent,
   ParentComponent
 } from './components';
 import { token } from './services';
@@ -21,7 +20,6 @@ import { token } from './services';
     HomeDetailComponent,
     HomeGrandComponent,
     HomeAuxComponent,
-    ChildComponent,
     ParentComponent,
   ],
   // Model

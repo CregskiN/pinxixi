@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import { Observable, Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 import { ImageSlider } from '../../../shared';
 import { HomeService } from '../../services';
@@ -17,10 +20,11 @@ export interface Channel {
   styleUrls: ['./home-detail.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeDetailComponent implements OnInit {
-  imageSliders: ImageSlider[] = [];
-  channels: Channel[] = [];
-  selectedTabLink: string; // 当前路由的路由参数
+export class HomeDetailComponent implements OnInit, OnDestroy {
+  imageSliders$: Observable<ImageSlider[]>;
+  channels$: Observable<Channel[]>;
+  selectedTabLink$: Observable<string>; // 当前路由的路由参数
+  sub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,23 +33,23 @@ export class HomeDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getBanners().subscribe(banners => {
-      this.imageSliders = banners;
-      this.cd.markForCheck();
-    });
-    this.service.getChannels().subscribe(channels => {
-      this.channels = channels;
+    this.selectedTabLink$ = this.route.paramMap.pipe(
+      filter(params => params.has('tabLink')), // 为真，放行，为假，拦截
+      map(params => params.get('tabLink')) // 获取 tabLink
+    )
+
+    this.sub = this.route.queryParamMap.subscribe(params => {
+      console.log("切换子路由 查询参数 queryParams", params);
       this.cd.markForCheck();
     });
 
-    this.route.paramMap.subscribe(params => { // rxjs 订阅
-      console.log("切换子路由 路径参数 pathParams", params);
-      this.selectedTabLink = params.get('tabLink');
-      this.cd.markForCheck();
-    });
-    this.route.queryParamMap.subscribe(params => {
-      console.log("切换子路由 查询参数 queryParams", params);
-    });
+    this.imageSliders$ = this.service.getBanners();
+    this.channels$ = this.service.getChannels();
   }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
 
 }

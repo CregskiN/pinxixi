@@ -1,8 +1,8 @@
-<div *ngIf="selectedTabLink === 'hot' else other">
-  <app-image-slider [sliders]="imageSliders"></app-image-slider>
+<div *ngIf="(selectedTabLink$ | async) === 'hot' else other">
+  <app-image-slider [sliders]="(imageSliders$ | async)"></app-image-slider>
 
   <app-horizontal-grid>
-    <span appGridItem *ngFor="let item of channels">
+    <span appGridItem *ngFor="let item of (channels$ | async)">
       <img [src]="item.icon" alt="" appGridItemImage="2rem">
       <span appGridItemTitle="0.5rem">{{item.title}}</span>
     </span>
@@ -30,3 +30,5 @@
 
 <!-- 辅助插座 可以有多个 -->
 <router-outlet name="second"></router-outlet>
+
+<app-parent></app-parent>

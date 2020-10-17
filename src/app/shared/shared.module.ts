@@ -6,6 +6,7 @@ import {
   ScrollableTabComponent,
   ImageSliderComponent,
   HorizontalGridComponent,
+  CountDownComponent,
 } from './components';
 
 import {
@@ -18,6 +19,7 @@ import {
   AgoPipe
 } from './pipes';
 
+
 @NgModule({
   declarations: [
     ScrollableTabComponent,
@@ -26,7 +28,8 @@ import {
     GridItemDirective,
     GridItemImage,
     GridItemTitle,
-    AgoPipe
+    AgoPipe,
+    CountDownComponent
   ],
   imports: [
     CommonModule, FormsModule
@@ -40,7 +43,8 @@ import {
     GridItemDirective,
     GridItemImage,
     GridItemTitle,
-    AgoPipe
+    AgoPipe,
+    CountDownComponent
   ]
 })
 export class SharedModule { }
