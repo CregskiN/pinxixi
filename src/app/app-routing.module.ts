@@ -6,14 +6,25 @@ import {
   HomeDetailComponent,
   HomeGrandComponent,
   HomeAuxComponent,
-  ParentComponent
 } from './home';
+import {
+  RecommendContainerComponent
+} from './recommend';
+import {
+  CategoryContainerComponent
+} from './category';
+import {
+  ChatContainerComponent
+} from './chat';
+import {
+  MyContainerComponent
+} from './my';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full' // 完全匹配'' 时，重定向到home
+    pathMatch: 'full', // 完全匹配'' 时，重定向到home
   },
   {
     path: 'home',
@@ -40,18 +51,28 @@ const routes: Routes = [
         ]
       }
     ]
-  },{
-    path: 'change-detection',
-    pathMatch: 'full',
-    component: ParentComponent
+  },
+  {
+    path: 'recommend',
+    component: RecommendContainerComponent,
+  },
+  {
+    path: 'category',
+    component: CategoryContainerComponent
+  },
+  {
+    path: 'chat',
+    component: ChatContainerComponent
+  },
+  {
+    path: 'my',
+    component: MyContainerComponent
   }
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // 根模块使用 forRoot 其他使用 forChild
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })], // 根模块使用 forRoot 其他使用 forChild // 激活路由事件
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

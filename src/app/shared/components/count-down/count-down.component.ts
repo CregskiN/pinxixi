@@ -19,7 +19,7 @@ export class CountDownComponent implements OnInit {
     this.countDown$ = interval(1000).pipe(
       map(elapse => this.diffInSec(this.startDate, this.futureDate) - elapse),
       takeWhile(gap => gap >= 0),
-      tap(val => console.log(val)), // 在流之间作出操作
+      // tap(val => console.log(val)), // 在流之间作出操作
       map(sec => ({
         day: Math.floor(sec / 3600 / 24),
         hour: Math.floor(sec / 3600),

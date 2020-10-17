@@ -13,7 +13,7 @@ import localZh from '@angular/common/locales/zh-Hans';
 
 @NgModule({
   declarations: [ // root module
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

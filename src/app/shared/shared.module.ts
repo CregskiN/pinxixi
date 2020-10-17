@@ -7,6 +7,7 @@ import {
   ImageSliderComponent,
   HorizontalGridComponent,
   CountDownComponent,
+  FooterComponent
 } from './components';
 
 import {
@@ -29,7 +30,8 @@ import {
     GridItemImage,
     GridItemTitle,
     AgoPipe,
-    CountDownComponent
+    CountDownComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule, FormsModule
@@ -44,7 +46,8 @@ import {
     GridItemImage,
     GridItemTitle,
     AgoPipe,
-    CountDownComponent
+    CountDownComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
