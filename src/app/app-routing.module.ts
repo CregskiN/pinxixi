@@ -72,7 +72,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })], // 根模块使用 forRoot 其他使用 forChild // 激活路由事件
+  imports: [RouterModule.forRoot(routes)], // 根模块使用 forRoot 其他使用 forChild // 激活路由事件
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
