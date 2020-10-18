@@ -37,12 +37,13 @@ import {
     FormsModule,
     SharedModule,
     AppRoutingModule,
+    HttpClientModule, // 在根模块导入，子模块都可以导入
+    // 集体加载 不是懒加载 必须导入
     HomeModule,
     RecommendModule,
     CategoryModule,
     ChatModule,
     MyModule,
-    HttpClientModule, // 在根模块导入，子模块都可以导入
   ],
   providers: [{
     provide: LOCALE_ID,

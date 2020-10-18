@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 import { TopMenu } from '../../../shared';
-import { HomeService, token } from '../../services';
+import { HomeService } from '../../services';
 
 @Component({
   selector: 'app-home-container',
@@ -12,14 +13,20 @@ import { HomeService, token } from '../../services';
 })
 export class HomeContainerComponent implements OnInit {
   topMenus$: Observable<TopMenu[]>;
-  @Inject(token) private baseURL: string;
+  selectedTabLink$: Observable<string>;
+
   constructor(
     private router: Router,
-    private service: HomeService
+    private service: HomeService,
+    private route: ActivatedRoute, // 当前激活的路由
   ) { }
 
   ngOnInit() {
     this.topMenus$ = this.service.getTabs();
+    this.selectedTabLink$ = this.route.firstChild.paramMap.pipe(
+      filter(params => params.has('tabLink')),
+      map(params => params.get('tabLink'))
+    )
   }
 
   /**
@@ -28,7 +35,6 @@ export class HomeContainerComponent implements OnInit {
    */
   handleTabSelected(topMenu: TopMenu): void {
     this.router.navigate(['home', topMenu.link])
-
   }
 
 }

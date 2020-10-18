@@ -14,26 +14,22 @@ export interface TopMenu {
 })
 export class ScrollableTabComponent implements OnInit {
   @Input() menus: TopMenu[] = [];
+  @Input() selectedTabLink: string;
   @Output() tabSelected = new EventEmitter();
-
-  selectedIndex: number = 0;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 
 
   /**
    * 头部 menu 点击事件
-   * 1. 改变selectedIndex
-   * 2. 向父组件传递被转中的 menu
+   * 向父组件传递被转中的 menu
    * @param index 
    */
   handleSelection(index: number): void {
-    this.selectedIndex = index;
-    this.tabSelected.emit(this.menus[this.selectedIndex]);
+    this.tabSelected.emit(this.menus[index]);
   }
 
 }

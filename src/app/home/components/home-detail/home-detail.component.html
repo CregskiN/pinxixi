@@ -1,34 +1,18 @@
-<div *ngIf="(selectedTabLink$ | async) === 'hot' else other">
-  <app-image-slider [sliders]="(imageSliders$ | async)"></app-image-slider>
+<ng-container *ngIf="(selectedTabLink$ | async) as tab">
+  <!-- ng-container 不会增加 DOM 节点 -->
+  <ng-container *ngIf="tab === 'hot'">
+    <app-image-slider [sliders]="(imageSliders$ | async)"></app-image-slider>
 
-  <app-horizontal-grid>
-    <span appGridItem *ngFor="let item of (channels$ | async)">
-      <img [src]="item.icon" alt="" appGridItemImage="2rem">
-      <span appGridItemTitle="0.5rem">{{item.title}}</span>
-    </span>
-  </app-horizontal-grid>
+    <app-horizontal-grid>
+      <span appGridItem *ngFor="let item of (channels$ | async)">
+        <img [src]="item.icon" alt="" appGridItemImage="2rem">
+        <span appGridItemTitle="0.5rem">{{item.title}}</span>
+      </span>
+    </app-horizontal-grid>
+  </ng-container>
+
+</ng-container>
+
+<div class="ad-container" *ngIf="ad$ | async">
+  <img class="ad-image" [src]="ad.imageURL" alt="">
 </div>
-
-<ng-template #other>
-  Other Works
-</ng-template>
-
-<!-- 普通路由跳转 -->
-<!-- <a [routerLink]="['grand']">link grand</a> -->
-
-<!-- 为当前激活的路由设置 class 为 active -->
-<!-- <a [routerLink]="['grand']" routerLinkActive="active">link grand</a>  -->
-
-<!-- 激活路由、为当前路由设置active、传递queryParams，同时激活副插座 -->
-<a [routerLink]="['grand']" routerLinkActive="active" [queryParams]="{name: 'zhangsan'}">link grand</a>
-
-<!-- 激活副插座 -->
-<a [routerLink]="[{outlets: {second:['aux']}}]">link second</a>
-
-<!-- 主插座 只能有一个！ -->
-<router-outlet></router-outlet>
-
-<!-- 辅助插座 可以有多个 -->
-<router-outlet name="second"></router-outlet>
-
-<app-parent></app-parent>

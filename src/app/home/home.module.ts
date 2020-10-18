@@ -6,9 +6,6 @@ import { SharedModule } from '../shared';
 import {
   HomeContainerComponent,
   HomeDetailComponent,
-  HomeGrandComponent,
-  HomeAuxComponent,
-  ParentComponent
 } from './components';
 import { token } from './services';
 
@@ -18,9 +15,6 @@ import { token } from './services';
   declarations: [
     HomeContainerComponent,
     HomeDetailComponent,
-    HomeGrandComponent,
-    HomeAuxComponent,
-    ParentComponent,
   ],
   // Model
   imports: [

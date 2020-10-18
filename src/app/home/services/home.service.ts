@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
+  Ad,
   ImageSlider,
   TopMenu
 } from 'src/app/shared';
@@ -32,7 +33,9 @@ export class HomeService {
    */
   public getBanners() {
     return this.http.get<ImageSlider[]>(`${environment.baseURL}/banners`, {
-      params: { icode: `123` }
+      params: {
+        icode: `123`
+      }
     });
   }
 
@@ -41,7 +44,18 @@ export class HomeService {
    */
   public getChannels() {
     return this.http.get<Channel[]>(`${environment.baseURL}/channels`, {
-      params: { icode: `123` }
+      params: {
+        icode: `123`
+      }
     });
+  }
+
+  public getAdByTab(tab: string) {
+    return this.http.get<Ad>(`${environment.baseURL}/ads`, {
+      params: {
+        categories_like: tab,
+        icode: '123'
+      }
+    })
   }
 }

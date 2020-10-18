@@ -1,10 +1,10 @@
 <ul>
-  <li *ngFor="let menu of menus;let i = index; let even = even;let odd = odd;">
+  <li *ngFor="let menu of menus;let idx = index; let even = even;let odd = odd;">
     <a 
-      (click)="handleSelection(i)"
+      (click)="handleSelection(idx)"
     >{{menu.title}}</a>
     <span 
-      *ngIf="i===selectedIndex"
+      *ngIf="menu.link===selectedTabLink"
       class="indicator" 
     ></span>
   </li>

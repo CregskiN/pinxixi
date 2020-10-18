@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   HomeContainerComponent,
   HomeDetailComponent,
-  HomeGrandComponent,
-  HomeAuxComponent,
 } from './home';
 import {
   RecommendContainerComponent
@@ -38,17 +36,6 @@ const routes: Routes = [
       {
         path: ':tabLink',
         component: HomeDetailComponent,
-        children: [
-          {
-            path: 'aux',
-            component: HomeAuxComponent,
-            outlet: 'second'
-          },
-          {
-            path: 'grand',
-            component: HomeGrandComponent
-          }
-        ]
       }
     ]
   },
